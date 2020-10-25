@@ -1,0 +1,43 @@
+<%- include('partials/header'); -%>
+    <h1 class="mt-3 mb-5 text-center">
+        <%= title %>
+    </h1>
+
+    <% if(entries.length) { %>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Published at</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% entries.forEach(function(entry) { %>
+
+                    <tr>
+                        <td>
+                            <%= entry.title %>
+                        </td>
+                        <td>
+                            <%= entry.description %>
+                        </td>
+                        <td>
+                            <%= entry.published.toDateString() %>
+                        </td>
+
+                    </tr>
+
+                    <% }) %>
+
+            </tbody>
+        </table>
+
+        <% } else { %>
+
+            <h2>There are no entries registered!</h2>
+
+            <% } %>
+
+                <%- include('partials/footer'); -%>
